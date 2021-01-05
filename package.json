@@ -1,0 +1,39 @@
+{
+  "name": "connectpharma",
+  "version": "1.0.0",
+  "description": "Integracao entre fornecedores e a pharmanexo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build"
+  },
+  "author": "chulesantos",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "7.0.0",
+    "electron-builder": "22.1.0",
+    "electron-packager": "14.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "4.3.1",
+    "fs-extra": "^9.0.1",
+    "install": "0.13.0",
+    "jquery": "3.0.0",
+    "moment": "^2.29.1",
+    "mssql": "5.1.0",
+    "mysql": "2.17.1",
+    "npm": "6.12.1",
+    "oracledb": "^4.0.1",
+    "pg": "^8.5.1",
+    "popper.js": "1.11.0",
+    "request": "^2.88.2",
+    "sqlite3": "5.0.0"
+  },
+  "build": {
+    "appId": "br.com.pharmaconnect",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  }
+}

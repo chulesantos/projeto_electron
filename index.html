@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>ConnectPharma</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <script>window.jQuery = window.$ = require('jquery');</script>
+    <script>require('popper.js');</script>
+    <script>require('bootstrap');</script>
+    <style>
+        #main {
+            background: url("src/images/bg_app.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        #footer {
+            width: 1000px;
+            height: auto;
+            position: absolute;
+            padding-left: 14px;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid" id="main">
+    <div class="row">
+        <div class="col-6 text-center">
+            <img src="src/images/logo_p.png" alt="" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-7 pl-4">
+            <form action="" method="post" id="form" name="form">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="CNPJ da Empresa Parceira">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                </div>
+                                <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ da Empresa Parceira"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Servidor (IP, Banco de Dados)">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-server"></i>
+                                    </div>
+                                </div>
+                                <input type="text" name="server" id="server" placeholder="Servidor (IP, Banco de Dados)"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Porta do Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-network-wired"></i>
+                                    </div>
+                                </div>
+                                <input type="number" name="port" id="port" placeholder="Porta" class="form-control"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Database - Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                </div>
+                                <input type="text" name="database" id="database" placeholder="Database - Banco de Dados"
+                                       class="form-control" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="crypto"> <span class="pl-2">TLS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Usuãrio do Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <input type="text" name="user" id="user" placeholder="Usuãrio do Banco de Dados"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Senha do Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                </div>
+                                <input type="password" name="pass" id="pass" placeholder="Senha do Banco de Dados"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Tabela ou View do Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                </div>
+                                <input type="text" name="table" id="table"
+                                       placeholder="Tabela ou View do Banco de Dados"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Driver do Banco de Dados">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                </div>
+
+                                <select name="" id="driverBanco" class="form-control">
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <div class="input-group" data-toggle="tooltip" title="Intervalo da Integração">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+
+                                <select name="" id="tempoIntegracao" class="form-control">
+
+                                    <option value="15">15 minutos</option>
+                                    <option value="30">30 minutos</option>
+                                    <option value="45">45 minutos</option>
+                                    <option value="60">60 minutos</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <button type="submit" form="form" id="btnStart" class="btn btn-block btn-primary">Iniciar
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <button type="button" id="btnStop" class="btn btn-block btn-secondary">Parar</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+
+                <div id="errorMessage" class="col-12 text-center">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" id="footer">
+        <div class="col-7 pl-4" id="date">
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div id="errorDetalhe"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/1c167b2fa8.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="controllers/Engine.js"></script>
+<script src="helpers/sqlite3.js"></script>
+<script src="helpers/Request.js"></script>
+<script src="drivers/MySQL.js"></script>
+<script src="drivers/PostgreSQL.js"></script>
+<script src="drivers/OracleDB.js"></script>
+<script src="drivers/SqlServer.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('#cnpj').mask('99.999.999/9999-99');
+
+        $('#errorMessage').html('');
+
+        $('#form').submit(function (e) {
+            e.preventDefault();
+
+            $('#errorMessage').html('<img style="margin: 0 auto; margin-top: -80px;" class="img-fluid" src="src/images/loading.svg">');
+
+            let checkBox = 0;
+
+            if ($('#crypto').is(':checked')) {
+
+                checkBox = 1;
+            }
+
+            let arr =
+                [
+                    $('#server').val(),
+                    $('#port').val(),
+                    $('#user').val(),
+                    $('#pass').val(),
+                    $('#database').val(),
+                    $('#table').val(),
+                    $('#cnpj').val(),
+                    parseInt($('#driverBanco').val()),
+                    parseInt($('#tempoIntegracao').val()),
+                    checkBox,
+                    1
+                ];
+
+            let data = {
+                server: arr[0],
+                port: arr[1],
+                user: arr[2],
+                pass: arr[3],
+                database: arr[4],
+                table: arr[5],
+                cnpj: arr[6],
+                driver: arr[7],
+                cripto: checkBox
+            }
+
+            let query = `UPDATE configs
+                         SET host     = ?,
+                             port     = ?,
+                             user     = ?,
+                             pass     = ?,
+                             database = ?,
+                             view     = ?,
+                             cnpj     = ?,
+                             driver   = ?,
+                             minuto   = ?,
+                             tls      = ?
+                         WHERE id = ?`;
+
+            db.run(query, arr, (err) => {
+                if (err) {
+                    return console.error(err.message);
+                }
+            });
+
+            $('input, select', '#form').attr('disabled', true);
+            $('#btnStart').attr('disabled', true);
+
+            start(data);
+
+            let tempoIntegracao = ((arr[8] * 60) * 1000);
+
+            const restart = setInterval(function () {
+
+                start(data);
+
+            }, tempoIntegracao);
+
+            $('#btnStop').click(function (e) {
+                e.preventDefault();
+
+                clearInterval(restart);
+
+                $('#errorMessage').html('');
+
+                $('input, select', '#form').attr('disabled', false);
+                $('#btnStart').attr('disabled', false);
+
+            })
+        })
+    })
+
+</script>
+
+</body>
+</html>
